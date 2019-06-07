@@ -1,5 +1,6 @@
 #ifndef WEATHER_H
 #define WEATHER_H
+#include <vector>
 
 #include <string>
 
@@ -21,6 +22,19 @@ private:
     int month;
     int year;
 };
+
+class WReading{
+friend std::ostream& operator<<(std::ostream& os, const WReading& wr);
+public:
+    WReading(Date dt, double temp, double hum, double ws):
+        date(dt), temperature(temp),humidity(hum),windspeed(ws){}
+private:
+    Date date;
+    double temperature;
+    double humidity;
+    double windspeed;
+};
+
 const int UNRATED = -1;
 const int BAD = 0;
 const int OK = 1;
@@ -35,7 +49,9 @@ public:
     std::string get_name() const;
     int get_rating() const;
     void set_rating(int new_rating);
+    void add_reading(WReading wr);
 private:
+    std::vector<WReading> wreadings;
     std::string station_nm;
     GPS my_loc;
     int rating = UNRATED;
