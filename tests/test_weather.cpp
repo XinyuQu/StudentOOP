@@ -1,10 +1,14 @@
 #include <cassert>
 #include <iostream>
+<<<<<<< HEAD
 #include <fstream>
+=======
+>>>>>>> bd6845170c2eb41e567b105458afae8efdc627f1
 #include "../my_code/weather.h"
 
 using namespace std;
 
+<<<<<<< HEAD
 void get_wreadings(string filenm, Weather& w) {
     ifstream rfile(filenm);
     if (!rfile) {
@@ -32,3 +36,13 @@ int main() {
     
     cout << irkutsk << endl;
 }
+=======
+int main() {
+    Date test_date = Date(15,12,2019);
+    cout << test_date << endl;
+    GPS loc = GPS(46.3, 67.2);
+    Weather irkutsk = Weather("Irkutsk", loc, -1);
+    cout << irkutsk << endl;
+}
+
+>>>>>>> bd6845170c2eb41e567b105458afae8efdc627f1

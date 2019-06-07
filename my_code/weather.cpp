@@ -18,12 +18,15 @@ ostream& operator<<(ostream& os, const Date& date){
     return os;
 }
 
+<<<<<<< HEAD
 
 ostream& operator<<(ostream& os, const WReading& wr){
     os << "Date: " << wr.date << "; Humidity: " << wr.humidity << "; Temperature: " << wr.temperature << "; Windspeed: " << wr.windspeed;
     return os;
 }
 
+=======
+>>>>>>> bd6845170c2eb41e567b105458afae8efdc627f1
 /*
  * Output GPS
  **/
@@ -36,7 +39,11 @@ ostream& operator<<(ostream& os, const GPS& gps){
 /*
  * A constructor for weather class.
  * */
+<<<<<<< HEAD
 Weather::Weather(string nm, GPS loc, int rating) :
+=======
+Weather::Weather(std::string nm, GPS loc, int rating) :
+>>>>>>> bd6845170c2eb41e567b105458afae8efdc627f1
 station_nm(nm), my_loc(loc), rating(rating) {
 }
 
@@ -54,6 +61,7 @@ void Weather::set_rating(int new_rating){
     rating = new_rating;
 }
 
+<<<<<<< HEAD
 void Weather::add_reading(WReading wr){
     wreadings.push_back(wr);
 }
@@ -65,6 +73,11 @@ ostream& operator<<(ostream& os, const Weather& w){
     for(WReading wr : w.wreadings){
         os << "   " << wr << endl;
     }
+=======
+ostream& operator<<(ostream& os, const Weather& w){
+    os << w.get_name() << "rating : " << w.get_rating() << "; location: "
+    << w.my_loc;
+>>>>>>> bd6845170c2eb41e567b105458afae8efdc627f1
     return os;
 }
 
