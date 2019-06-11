@@ -69,3 +69,9 @@ ostream& operator<<(ostream& os, const Weather& w){
     return os;
 }
 
+const double F_to_C = 5 / 9;
+const double C_to_F = 9 / 5;
+
+double WReading::get_tempF(){
+    return temperature * C_to_F + 32;
+}

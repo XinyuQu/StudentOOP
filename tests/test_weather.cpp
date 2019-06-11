@@ -7,6 +7,13 @@
 using namespace std;
 
 void get_wreadings(string filenm, Weather& w) {
+    WReading test_temps = WReading(Date(1,1,2019),0,50,10);
+    double freezingF = test_temps.get_tempF();
+    assert(freezingF == 32.0);
+    WReading test_temps2 = WReading(Date(1,1,2019),100,50,10);
+    double boilingTemp = test_temps2.get_tempF();
+    assert(boilingTemp == 212.0);
+    
     ifstream rfile(filenm);
     if (!rfile) {
         cout << "Could not read input file: " << filenm << endl;

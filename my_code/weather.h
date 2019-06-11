@@ -28,6 +28,10 @@ friend std::ostream& operator<<(std::ostream& os, const WReading& wr);
 public:
     WReading(Date dt, double temp, double hum, double ws):
         date(dt), temperature(temp),humidity(hum),windspeed(ws){}
+    
+    double get_tempF();
+    double get_tempC(){return temperature;};
+
 private:
     Date date;
     double temperature;
@@ -50,6 +54,8 @@ public:
     int get_rating() const;
     void set_rating(int new_rating);
     void add_reading(WReading wr);
+    int get_heat_index();
+    int get_wind_chill();
 private:
     std::vector<WReading> wreadings;
     std::string station_nm;
