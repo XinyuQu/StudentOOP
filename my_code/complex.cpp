@@ -16,6 +16,15 @@ bool operator== (const Complex& c1, const Complex& c2) {
     }
 }
 
+bool operator != (const Complex& c1, const Complex& c2) {
+    if ((c1.get_real() == c2.get_real()) && (c1.get_imag() == c2.get_imag())){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 ostream& operator<< (ostream& os, const Complex& c) {
     /*
      * Outputting a `Complex` instance, while illustrating some of the
@@ -55,6 +64,18 @@ Complex Complex::operator++(int dummy) {
     real ++;
     return temp;
 }
+
+Complex& Complex::operator--() {
+    -- real;
+    return *this;
+}
+
+Complex Complex::operator--(int dummy) {
+    Complex temp = *this;
+    real --;
+    return temp;
+}
+
 
 Complex operator+(const Complex& c1, const Complex& c2){
     double real_res = c1.get_real() + c2.get_real();
