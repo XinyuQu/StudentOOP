@@ -106,3 +106,10 @@ Complex operator-(const Complex& c1, const Complex& c2){
     return res;
 }
 
+Complex Complex::operator-=(const Complex& c){
+    real -= c.get_real();
+    imag -= c.get_imag();
+    return *this;
+}
+
+
