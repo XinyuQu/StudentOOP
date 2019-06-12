@@ -8,7 +8,12 @@ using namespace std;
 Complex::Complex(double real, double imag) : real(real), imag(imag){}
 
 bool operator== (const Complex& c1, const Complex& c2) {
-    return true;  // temp!
+    if ((c1.get_real() == c2.get_real()) && (c1.get_imag() == c2.get_imag())){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 ostream& operator<< (ostream& os, const Complex& c) {
