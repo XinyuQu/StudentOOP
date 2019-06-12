@@ -103,7 +103,7 @@ Image::Image(const Image& img2) {
 // destructor
 Image::~Image() {
     if(image_buf != nullptr){
-        delete image_buf;
+        delete[] image_buf;
     }
 }
 
@@ -111,7 +111,7 @@ Image::~Image() {
 Image& Image::operator=(const Image& img2) {
     if (&img2 != this) {
         if(image_buf != nullptr){
-            delete image_buf;
+            delete[] image_buf;
         }
         height = img2.height;
         width = img2.width;
