@@ -78,3 +78,10 @@ Complex Complex::operator*(const int i) {
     return *this;
 }
 
+Complex operator-(const Complex& c1, const Complex& c2){
+    double real_res = c1.get_real() - c2.get_real();
+    double imag_res = c1.get_imag() - c2.get_imag();
+    Complex res = Complex(real_res, imag_res);
+    return res;
+}
+
