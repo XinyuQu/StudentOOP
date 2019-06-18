@@ -20,7 +20,7 @@ MyVec::MyVec() {
 MyVec::MyVec(const MyVec& v2) {
     sz = v2.sz;
     capacity = v2.capacity;
-    data = new int(capacity);
+    data = new int[capacity];
     for (int i = 0; i < sz; i ++){
         data[i] = v2.data[i];
     }
@@ -39,7 +39,7 @@ MyVec& MyVec::operator=(const MyVec& v2) {
         }
         sz = v2.sz;
         capacity = v2.capacity;
-        data = new int(capacity);
+        data = new int[capacity];
         for (int i = 0; i < sz; i ++){
             data[i] = v2.data[i];
         }
@@ -68,9 +68,7 @@ bool operator==(MyVec& v1, MyVec& v2) {
  * Puts an element at the back of a vector.
  * */
 void MyVec::push_back(int val) {
-    if(sz < capacity){
-        data[sz ++] = val;
-    }else{
+    if(sz >= capacity){
         capacity *= 2;
         int* new_data = new int[capacity];
         for(int i = 0; i < sz; i ++){
@@ -78,8 +76,8 @@ void MyVec::push_back(int val) {
         }
         delete[] data;
         data = new_data;
-        data[sz ++] = val;
     }
+    data[sz ++] = val;
 }
 
 /*
