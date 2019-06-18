@@ -1,13 +1,25 @@
-//
-//  vector.h
-//  cs2124
-//
-//  Created by Charlie Qu on 2019/6/13.
-//  Copyright © 2019 Xinyu Qu. All rights reserved.
-//
+const int DEF_CAPACITY = 10;
 
-#ifndef vector_h
-#define vector_h
+class MyVec {
+public:
+    MyVec();
+    
+    // copy control:
+    MyVec(const MyVec& v2);
+    ~MyVec();
+    MyVec& operator=(const MyVec& v2);
+    
+    void push_back(int val);
+    int size() const { return sz; }
+    int operator[](int i) const;
+    int& operator[](int i);
+private:
+    int* data;
+    int sz;
+    int capacity;
+};
 
 
-#endif /* vector_h */
+void print_vector(const MyVec& v);
+
+bool operator==(MyVec& v1, MyVec& v2);
