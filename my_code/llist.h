@@ -40,15 +40,13 @@ bool del_tail(Node*& curr);
 /*
  * Duplicate the entire list -- you must not share memory!
  * */
-void duplicate_helper(Node* old_node, Node*& new_node);
+//void duplicate_helper(Node* old_node, Node*& new_node);
 Node* duplicate(Node* head);
 
 /*
  * Reverse the list: return a brand new list with everything reversed.
  * */
 Node* reverse(Node* curr, Node* new_next=nullptr);
-
-Node* last_node(Node*& n);
 
 /*
  * Join two lists: tack list 2 onto the end of list 1:

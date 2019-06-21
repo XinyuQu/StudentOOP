@@ -7,10 +7,16 @@ int main() {
     Node* head = nullptr;
     head = new Node(8, nullptr);
     add_at_end(head, 16);
+    cout << "line 10\n";
+    print_list(cout, head);
     add_at_end(head, 32);
+    cout << "line 13\n";
+    print_list(cout, head);
     add_at_end(head, 64);
     add_at_end(head, 128);
     add_at_end(head, 256);
+    cout << "line 18\n";
+    print_list(cout, head);
     cout << "head->data: " << head->data << endl;
     assert(head->data == 8);
     
@@ -20,6 +26,8 @@ int main() {
     assert(lastp->data == 256);
     
     add_at_front(head, 4);
+    cout << "line 27\n";
+    print_list(cout, head);
     assert(head->data == 4);
     
     // delete the head:
@@ -47,7 +55,7 @@ int main() {
     lastp = last(reversed);
     assert(lastp->data == 8);
     
-    /*
+    
      // now duplicate it:
      Node* dupe = duplicate(head);
      cout << "Duplicate: \n";
@@ -61,5 +69,5 @@ int main() {
      print_list(cout, head);
      lastp = last(head);
      assert(lastp->data == 8);
-     */
+     
 }
