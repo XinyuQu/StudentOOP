@@ -35,8 +35,9 @@ MyVec::MyVec() {
 MyVec::MyVec(int sz, int val) : sz{sz} {
     int real_sz = max(DEF_CAPACITY, sz);
     data = new int[real_sz];
-    for (int i : *this){
-        i = val;
+    capacity = real_sz;
+    for (int i = 0; i < real_sz; i ++){
+        data[i] = val;
     }
 }
 

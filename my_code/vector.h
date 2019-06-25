@@ -13,7 +13,7 @@ public:
          * operator!=
          * */
         friend bool operator!=(Iterator& rhs, Iterator& lhs) {
-            return rhs.iptr == lhs.iptr;
+            return rhs.iptr != lhs.iptr;
         }
         
     public:
