@@ -3,10 +3,24 @@
 
 using namespace std;
 
+//void print_vector(const MyVec& v) {
+//    for (int i = 0; i < v.size(); i ++){
+//        cout << v[i] << " ";
+//    }
+//    cout << endl;
+//}
+
+MyVec::Iterator MyVec::begin() const {
+    return MyVec::Iterator(data);
+}
+
+MyVec::Iterator MyVec::end() const {
+    return MyVec::Iterator(data+size());
+}
+
+
 void print_vector(const MyVec& v) {
-    for (int i = 0; i < v.size(); i ++){
-        cout << v[i] << " ";
-    }
+    for (int i : v) cout << i << " ";
     cout << endl;
 }
 
@@ -16,6 +30,16 @@ MyVec::MyVec() {
     sz = 0;
     capacity = DEF_CAPACITY;
 }
+
+
+MyVec::MyVec(int sz, int val) : sz{sz} {
+    int real_sz = max(DEF_CAPACITY, sz);
+    data = new int[real_sz];
+    for (int i : *this){
+        i = val;
+    }
+}
+
 
 MyVec::MyVec(const MyVec& v2) {
     sz = v2.sz;
@@ -31,6 +55,9 @@ MyVec::~MyVec() {
         delete[] data;
     }
 }
+
+
+
 
 MyVec& MyVec::operator=(const MyVec& v2) {
     if(&v2 != this){
@@ -100,5 +127,14 @@ int& MyVec::operator[](int i) {
 }
 
 // v[i] = 4;
+
+void MyVec::copy(const MyVec& v2) {
+    sz = v2.sz;
+    capacity = v2.capacity;
+    data = new int[capacity];
+    for (int i = 0; i < sz; i++) {
+        data[i] = v2.data[i];
+    }
+}
 
 
