@@ -78,6 +78,9 @@ public:
             else return right->search(val);
         }
     }
+    Bst<T>* get_parent(){
+        return parent;
+    }
 private:
     T data;
     Bst<T>* parent;
@@ -97,5 +100,29 @@ T max(const Bst<T>* node){
     else return max(node->get_right());
 }
 
+template<typename T>
+T predecessor(Bst<T>* node){
+    if(node->get_left() != nullptr) return max(node->get_left());
+    else{
+        Bst<T>* parent = node->get_parent();
+        while(parent != nullptr){
+            if(parent->get_val() < node->get_val()) break;
+            parent = parent->get_parent();
+        }
+        return parent->get_val();
+    }
+}
 
+template<typename T>
+T successor(Bst<T>* node){
+    if(node->get_right() != nullptr) return min(node->get_right());
+    else{
+        Bst<T>* parent = node->get_parent();
+        while(parent != nullptr){
+            if(parent->get_val() > node->get_val()) break;
+            parent = parent->get_parent();
+        }
+        return parent->get_val();
+    }
+}
 
